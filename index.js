@@ -96,3 +96,43 @@ function getNextDate(date) {
     year: year.toString(),
   };
 }
+
+function getNextPalindromeDate(date) {
+  let counter = 0;
+  let nextDate = getNextDate(date);
+  while (true) {
+    counter = counter + 1;
+    if (checkPalindromeForAllDateFormats(nextDate)) {
+      break;
+    }
+    nextDate = getNextDate(nextDate);
+  }
+
+  console.log(counter, nextDate);
+  return [counter, nextDate];
+}
+
+function checkDateIsPalindrome() {
+  if (!inputDate.value) {
+    outputDiv.innerText = "Please enter the date correctly !!";
+  } else {
+    const dateObj = getDateObject(inputDate);
+
+    if (checkPalindromeForAllDateFormats(dateObj)) {
+      outputDiv.innerText = "Yay !! It's palindrome🎉🥳";
+    } else {
+      const [count, nextDate] = getNextPalindromeDate(dateObj);
+      outputDiv.innerText =
+        " You missed by " +
+        count +
+        " day,s, next palindrome is " +
+        nextDate.day +
+        "-" +
+        nextDate.month +
+        "-" +
+        nextDate.year;
+    }
+  }
+}
+
+submitBtn.addEventListener("click", checkDateIsPalindrome);
