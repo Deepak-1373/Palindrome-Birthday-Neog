@@ -125,7 +125,7 @@ function checkDateIsPalindrome() {
       outputDiv.innerText =
         " You missed by " +
         count +
-        " day,s, next palindrome is " +
+        " day's😞, next palindrome is " +
         nextDate.day +
         "-" +
         nextDate.month +
