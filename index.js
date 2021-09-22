@@ -22,3 +22,7 @@ function getAllDateFormat(dateobj) {
 
   return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, yymmdd];
 }
+
+function isPalindrome(date) {
+  return date === date.split("").reverse().join("");
+}
